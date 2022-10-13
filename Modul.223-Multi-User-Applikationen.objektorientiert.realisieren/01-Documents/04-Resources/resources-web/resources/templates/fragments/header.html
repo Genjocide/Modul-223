@@ -1,0 +1,36 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+<div th:fragment="header">
+    <!-- this is header -->
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" th:href="@{/}">CRM</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a th:href="@{/}">Home</a></li>
+                </ul>
+<!--                 <span sec:authorize="not isAuthenticated()"> -->
+<!-- 	                <ul class="nav navbar-nav"> -->
+<!-- 	                    <li class="active"><a th:href="@{/login}">Einloggen</a></li> -->
+<!-- 	                </ul> -->
+<!--                 </span> -->
+<!--                 <span sec:authorize="isAuthenticated()"> -->
+<!-- 	                <ul class="nav navbar-nav"> -->
+<!-- 	                    <li class="active"><a th:href="@{/logout}">Ausloggen</a></li> -->
+<!-- 	                </ul> -->
+<!--                 </span> -->
+<!--                 <span sec:authorize="hasRole(T(ch.zli.m223.CRM.security.CrmSpringRoles).ROLE_ADMIN)"> -->
+<!-- 	                <ul class="nav navbar-nav"> -->
+<!-- 	                    <li class="active"><a th:href="@{/admin/showUsers}">Benutzer verwalten</a></li> -->
+<!-- 	                </ul> -->
+<!--                 </span> -->
+            </div>
+        </div>
+    </nav>
+</div>
+
+</body>
+</html>

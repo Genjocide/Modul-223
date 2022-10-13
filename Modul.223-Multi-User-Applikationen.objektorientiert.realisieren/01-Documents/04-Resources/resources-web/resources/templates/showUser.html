@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>CRM Admin User Page</title>
+	
+	<meta name="viewport" content="width=device-width initial-scale=1" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" />
+
+	<!-- Html -->
+	<link href="../../resources/static/css/bootstrap.css" rel="stylesheet" type="text/css" />
+
+	<!-- Thymeleaf -->
+	<link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<div id="headwrapper">
+		<div th:replace="fragments/header :: header"></div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-7 col-md-8">
+				<div class="contentbox" id="main">
+
+					<h2 id="h2">Benutzerdaten</h2>
+		
+					<table class="table table-condensed userList">
+						<tr>
+							<th scope="col">Benutzer</th>
+							<th scope="col">Rollen</th>
+							<th scope="col"></th>
+							<th scope="col"></th>
+						</tr>
+						<tr> 
+							<td th:text="${user.userName}">Lady</td>
+							<td th:text="${user.roleNames}">is gaga</td>
+							<td> <a th:href="@{'/admin/deletUser/' + ${user.id}}">Benutzer loeschen</a></td>
+							<td> <a th:href="@{'/admin/modifyUser/' + ${user.id}}">Benutzer bearbeiten</a></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>	
+		
+		<div class="row">
+			<div class="col-sm-12">
+				<div th:replace="fragments/footer :: footer"></div>
+			</div>
+		</div>
+	</div>
+		
+</body>
+
+</html>

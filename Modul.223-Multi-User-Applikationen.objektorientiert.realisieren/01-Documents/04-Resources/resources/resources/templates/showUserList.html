@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>CRM Admin Users Page</title>
+	
+	<meta name="viewport" content="width=device-width initial-scale=1" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" />
+
+	<!-- Html -->
+	<link href="../../resources/static/css/bootstrap.css" rel="stylesheet" type="text/css" />
+
+	<!-- Thymeleaf -->
+	<link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<div id="headwrapper">
+		<div th:replace="fragments/header :: header"></div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-7 col-md-8">
+				<div class="contentbox" id="main">
+
+					<h2 id="h2">Beunutzerübersicht</h2>
+		
+					<table class="table table-condensed customerList">
+						<tr>
+							<th scope="col">Benutzer</th>
+							<th scope="col">Rollen</th>
+						</tr>
+						<tr  th:each="user : ${users}">
+							<td>
+								<a href="showUser.html" 
+									th:href="@{'/admin/showUser/' + ${user.id}}"
+									th:text="${user.userName}">
+									Big Dady
+								</a>
+							</td>
+							<td th:text="${user.roleNames}">-</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="col-sm-7 col-md-8">
+				<div class="contentbox">
+					
+					<form th:action="@{/admin/addNewUser}" method="post">
+					
+						<div class="row">
+							<div class="col-sm-7 col-md-8">
+								<p><input type="submit" value="Benuzer hinzufuegen"/></p>
+		                    </div>
+		                </div>
+					</form>
+				</div>
+			</div>
+		</div>
+	
+		<div class="row">
+			<div class="col-sm-12">
+				<div th:replace="fragments/footer :: footer"></div>
+			</div>
+		</div>
+		
+	</div>
+</body>
+
+</html>
